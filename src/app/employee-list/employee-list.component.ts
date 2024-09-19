@@ -11,6 +11,8 @@ import {
 } from "@angular/material/table";
 import {EmployeeService} from "../service/employee/employee.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {MatFabButton} from "@angular/material/button";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-employee-list',
@@ -25,7 +27,9 @@ import {HttpErrorResponse} from "@angular/common/http";
     MatHeaderRow,
     MatHeaderRowDef,
     MatRowDef,
-    MatRow
+    MatRow,
+    MatIcon,
+    MatFabButton
   ],
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.css'
@@ -50,7 +54,8 @@ export class EmployeeListComponent implements OnInit{
     'employeeAddress',
     'employeeGender',
     'employeeDepartment',
-    'employeeSkills'
+    'employeeSkills',
+    'delete'
   ];
 
   getEmployeeList():void {
@@ -66,5 +71,16 @@ export class EmployeeListComponent implements OnInit{
   }
 
 
+  deleteEmployee(employeeId:number){
+    this.employeeService.deleteEmployee(employeeId).subscribe({
+      next:(res)=>{
+        console.log(res);
+        this.getEmployeeList();
+      },
+      error:(err:HttpErrorResponse)=>{
+        console.log(err);
+      }
+    })
+  }
 
 }

@@ -22,4 +22,9 @@ export class EmployeeService {
   }
 
 
+  public deleteEmployee(employeeId:number){
+    return this.http.delete(`${this.api}/delete/employee/${employeeId}`);
+  }
+
+
 }
