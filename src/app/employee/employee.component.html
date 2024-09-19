@@ -1,0 +1,94 @@
+<div class="card p-5 m-5">
+
+  <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+
+  <mat-form-field appearance="fill">
+    <mat-label>employee id</mat-label>
+    <input disabled matInput placeholder="Placeholder" [(ngModel)]="employee.employeeId" name="employeeId">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>ex emp 0001</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>employee name</mat-label>
+    <input matInput placeholder="Placeholder" [(ngModel)]="employee.employeeName" name="employeeName">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>ex kawshan virantha</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>employee address</mat-label>
+    <input matInput placeholder="Placeholder" [(ngModel)]="employee.employeeAddress" name="employeeAddress">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>ex no 99 kiribathgoda</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>employee contact number</mat-label>
+    <input matInput placeholder="enter employee contact number" [(ngModel)]="employee.employeeContactNUmber" name="employeeContactNUmber">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>ex 0727694200</mat-hint>
+  </mat-form-field>
+
+
+  <mat-form-field>
+    <mat-label>Select an option</mat-label>
+    <mat-select [(ngModel)]="employee.employeeDepartment" name="employeeDepartment">
+      <mat-option value="it">it</mat-option>
+      <mat-option value="network">network</mat-option>
+      <mat-option value="repair">repair</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-radio-group aria-label="select employee's gender">
+    <mat-label>Select employee gender</mat-label>
+    <mat-radio-button [checked]="employee.employeeGender=='m'" (click)="selectGender('m')" value="m">m</mat-radio-button>
+    <mat-radio-button [checked]="employee.employeeGender=='f'" (click)="selectGender('f')" value="f">f</mat-radio-button>
+  </mat-radio-group>
+
+
+  <mat-form-field appearance="fill">
+    <mat-label>employee skills</mat-label>
+    <input disabled matInput placeholder="Placeholder" [(ngModel)]="employee.employeeSkills" name="employeeSkills">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    <mat-hint>ex this field will be auto selected after checked on skills</mat-hint>
+  </mat-form-field>
+
+  <section class="example-section mt-2">
+    <mat-label class="me-5">employee skills</mat-label>
+    <mat-checkbox (change)="onSkillsChange($event)" value="java" class="example-margin">java</mat-checkbox>
+    <mat-checkbox (change)="onSkillsChange($event)" value="spring boot" class="example-margin">spring boot</mat-checkbox>
+    <mat-checkbox (change)="onSkillsChange($event)" value="angular" class="example-margin">angular</mat-checkbox>
+    <mat-checkbox (change)="onSkillsChange($event)" value="react" class="example-margin">react</mat-checkbox>
+    <mat-checkbox (change)="onSkillsChange($event)" value="php" class="example-margin">php</mat-checkbox>
+    <mat-checkbox (change)="onSkillsChange($event)" value="js" class="example-margin">js</mat-checkbox>
+  </section>
+
+<mat-divider></mat-divider>
+
+
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <button type="reset" style="background-color: red" mat-fab extended>
+        <mat-icon>delete</mat-icon>
+        reset
+      </button>
+    </div>
+    <div class="col-md-6 text-end">
+      <button mat-fab extended>
+        <mat-icon>favorite</mat-icon>
+        Basic
+      </button>
+    </div>
+  </div>
+
+
+
+
+
+  </form>
+</div>
