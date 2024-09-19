@@ -17,5 +17,9 @@ export class EmployeeService {
     return this.http.post<EmployeeModel>(`${this.api}/save/employee`, employee);
   }
 
+  public getEmployees():Observable<EmployeeModel[]> {
+    return this.http.get<EmployeeModel[]>(`${this.api}/get/employee`)
+  }
+
 
 }
